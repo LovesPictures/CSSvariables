@@ -2,7 +2,8 @@
 # Project 3: CSS Variables (nice!)
 Made with vanilla JavaScript
 
-![image](https://user-images.githubusercontent.com/25634451/138945697-c9432839-7998-46b8-a2f2-7fbb31f0f216.png)
+![image]("https://user-images.githubusercontent.com/25634451/138945697-c9432839-7998-46b8-a2f2-7fbb31f0f216.png " width="100" height="200")
+
 
 Judith Ricketts, Artist, Lecturer and Software engineer - [Contact](https://lovespictures.com/)  
 Commit Date: 26th October 2021
