@@ -22,6 +22,10 @@ The HTML file has 3 `div` elements which correspond with the second, minute, and
 Update the CSS and create a function in Javascript using the classes to get the clock hands to rotate from a central pivot, 
 depending in keeping with computer time (?).
  
+## Useful links
+
+* [MDN CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)  
+* [A user’s guide to CSS variables](https://increment.com/frontend/a-users-guide-to-css-variables/)
 
 
 <!-- guide  https://github.com/nitishdayal/JavaScript30 -->
