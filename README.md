@@ -1,11 +1,13 @@
 ##
-# Project 2: Clock - JS/CSS 
-Clock made with vanilla JavaScript
+# Project 3: CSS Variables (nice!)
+Made with vanilla JavaScript
 
 Judith Ricketts, Artist, Lecturer and Software engineer - [Contact](https://lovespictures.com/)  
 Commit Date: 26th October 2021
 
-## Guide
+## Guide  
+
+To ve updated
 
 The HTML file has 3 `div` elements which correspond with the second, minute, and
     hour hand on a clock
