@@ -9,7 +9,8 @@ Commit Date: 26th October 2021
 
 Using CSS variables on an element from the :root. 
 when you use a CSS variable you can then update that variable on any element and any selectors that are inside that element.
-      >CSS variables, more accurately known as CSS custom properties, are landing in Chrome 49. They can be useful for reducing repetition in CSS, and also for powerful runtime       effects like theme switching and potentially extending/polyfilling future CSS features."  CSS Variables: Why Should You Care? - see useful links 
+      > CSS variables, more accurately known as CSS custom properties, are landing in Chrome 49. They can be useful for reducing repetition in CSS, and also for powerful runtime       effects like theme switching and potentially extending/polyfilling future CSS features."  CSS Variables: Why Should You Care? - see useful links 
+      **> Text that is a quote**
 
 <!-- Syntax -->
     :root{}
