@@ -7,16 +7,13 @@ Commit Date: 26th October 2021
 
 ## Guide  
 
-To ve updated
+Using CSS variables on an element or the :root to declare an update/?
 
-The HTML file has 3 `div` elements which correspond with the second, minute, and
-    hour hand on a clock
-
-<!-- elements -->
-    <div class="hand hour-hand"></div>
-    <div class="hand min-hand"></div>
-    <div class="hand second-hand"></div>
-<!-- elements -->
+<!-- Syntax -->
+    :root{}
+    
+    e.g. filter:  var(--blur); on the element 
+<!-- syntax -->
 
 
 ## Approach
@@ -27,6 +24,7 @@ depending in keeping with computer time (?).
 ## Useful links
 
 * [MDN CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)  
+* [Useful links The :root CSS pseudo-class] https://developer.mozilla.org/en-US/docs/Web/CSS/:root
 * [A user’s guide to CSS variables](https://increment.com/frontend/a-users-guide-to-css-variables/)
 
 
