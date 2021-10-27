@@ -2,128 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JS + CSS Clock</title>
+  <title>Scoped CSS Variables and JS</title>
 </head>
 <body>
+  <h4>Update CSS Variables with <span class='hl'>JS</span></h4>
 
+  <div class="controls">
+    <label for="spacing">Spacing:</label>
+    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
 
-<!-- HTML -->
-    <div class="clock">
-      <div class="clock-face">
-        <!-- separate div for each hand -->
-        <div class="hand hour-hand"></div>
-        <div class="hand min-hand"></div>
-        <div class="hand second-hand"></div>
-      </div>
-    </div>
+    <label for="blur">Blur:</label>
+    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
 
+    <label for="base">Base Color</label>
+        <!-- data atributes e.g.data-sizing="px", are made up so you can target them -->
+        <!-- https://courses.wesbos.com/account/access/61753ac241ee9b1bad8ddfcd/view/194130480 8:36 mins-->
+    <input id="base" type="color" name="base" value="#FFC0CB">
+  </div>
 
-<style>
+  <img src="https://source.unsplash.com/random/800x500">
 
-/* new */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+  <style>
+    :root { /*tag psudo class - see useful links - the highest level before the html/body)*/
+        --base:#FFC0CB;      	 /*background colour*/
+        --spacing: 20px; 	       /*spacing */
+        --blur: 10px;   		   /* filter */
+    }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .hl {
+      color: var(--base);
+    }
+
+    /*
+      misc styles, nothing to do with CSS variables
+    */
   
-  /* https://angrytools.com/gradient/ */
-  /* global 92%+ browsers support */
-     background:radial-gradient(circle at 50% 50%, rgba(0, 0, 180, 0.91) 0%, rgba(238, 130, 238, 0.47) 100%),
-    url("https://globalgamejam.org/sites/default/files/field_news_story_image_video/ticking-clocks.jpg") center/cover;
 
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  font-size: 10px;
-}
-    body {
-      margin: 0;
-      font-size: 2rem;
-      display: flex;
-      flex: 1;
-      min-height: 100vh;
-      align-items: center;
+    body, label{ 
+      text-align: center;
+      background: #060229;
+      color: white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 30px;
     }
 
-    .clock {
-      width: 40rem;
-      height: 40rem;
-      border: 20px  solid double rgb(225, 6, 245);
-      border-radius: 80%;
-      margin: 50px auto;
-      position: relative;
-      padding: 2rem;
-      box-shadow:
-        0 0 0 40px rgba(174, 12, 214, 0.1),
-        inset 0 0 0 10px #c8dff5,
-        inset 0 0 10px rgb(221, 9, 193),
-        0 0 10px rgba(0,0,0,0.2);
+    .controls {
+      margin-bottom: 50px;
     }
 
-    .clock-face {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform: translateY(-3px); /* account for the height of the clock hands */
-    }
-
-    .hand {
-      width: 50%;
-      height: 10px; /*tickeness of the hands*/
-      background: #c8dff5;
-      position: absolute;
-      top: 50%;
-      stroke-linecap: round;
-      /* reposition pivot points of the hands */
-      transform-origin: 100%;
-      transform: rotate(90deg);
-      transition: all 0.05s;
-      transition-timing-function: cubic-bezier(0.1, 2.7, 0, 0.56);
+    input {
+      width: 100px;
+      
 
     }
-
   </style>
 
-<script>
-// start with the second hand as this update more frequentlty
-// creating individual fuctions
-  const secondHand = document.querySelector('.second-hand');
-  const minsHand = document.querySelector('.min-hand');
-  const hourHand = document.querySelector('.hour-hand');
+  <script>
+    // select all of the elements on the page  
+    const inputs = document.querySelectorAll('.controls input');
 
- // Add a function to use the second hand function
-  function setDate() {      
-      const now = new Date();
- 
-      const seconds = now.getSeconds(); // get seconds
-      const secondsDegrees = ((seconds / 60) * 360) + 90; //turn the seconds into degrees of turning and offset the original 90 deg rotate
-      secondHand.style.transform = `rotate(${secondsDegrees}deg)`; //styling ?? 
-      
-      const mins = now.getMinutes(); //get mins
-      const minsDegrees = ((mins / 60) * 360) + ((seconds / 60) * 6) + 90; // see note above. 
-      minsHand.style.transform = `rotate(${minsDegrees}deg)`; //styling ?? 
- 
-      // new 
-      const hour = now.getHours(); // get hours 
-      const hourDegrees = ((hour /12 ) *360) + ((mins/60)*30)+90; // divide by number of hours + note above.
-      hourHand.style.transform = `rotate(${hourDegrees}deg)`; //styling ??
-}
-  // set intervals of 1 second
-  setInterval(setDate, 1000);
+    //create a function to handle the update 
+    // get the values 
+    function handleUpdate() {      
+        
+      // console.log(this.value); 
+      // target the data - sizing="px" or nothing
+      const suffix = this.dataset.sizing || '';
 
-  setDate();
+      // console.log(suffix); 
+      // update the variable 
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
+
+    //listen for a change event on each of the inputs 
+    //loop over the array with forEach 
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+  </script>
 
 
-</script>
 </body>
 </html>
