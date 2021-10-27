@@ -24,7 +24,7 @@ depending in keeping with computer time (?).
 ## Useful links
 
 * [MDN CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
-* [Useful links The :root CSS pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:root)    
+* [The :root CSS pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:root)    
 * [A user’s guide to CSS variables](https://increment.com/frontend/a-users-guide-to-css-variables/)
 
 
