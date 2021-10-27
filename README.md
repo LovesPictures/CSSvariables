@@ -33,6 +33,8 @@ depending in keeping with computer time (?).
 * [The :root CSS pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:root)    
 * [A user’s guide to CSS variables](https://increment.com/frontend/a-users-guide-to-css-variables/)
 * [CSS Variables: Why Should You Care?](https://developers.google.com/web/updates/2016/02/css-variables-why-should-you-care)
+* [Styling Cross-Browser Compatible Range Inputs with CSS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
+
 
 
 <!-- guide  https://github.com/nitishdayal/JavaScript30 -->
